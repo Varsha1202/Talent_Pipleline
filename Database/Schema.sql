@@ -28,27 +28,6 @@
        profile_pic_url varchar(255),
        foreign key (user_id) references users(user_id)
     );
-// Users
- create table users(
-     user_id int auto_increment primary key,
-     email varchar(100) not null unique,
-     password_hash varchar(255) not null,
-     role_id int not null,
-     created_at timestamp default current_timestamp,
-     last_login timestamp Null,
-     foreign key(role_id) references roles(role_id)
-     );
-
-//user Profiles
- create table user_profiles(
-     profile_id int auto_increment primary key,
-     user_id int not null,
-     full_name varchar(100),
-     phone varchar(50),
-     location varchar(100),
-     profile_pic_url varchar(255),
-     foreign key (user_id) references users(user_id)
-     );
 
 // Candidates
  create table candidates(
@@ -57,7 +36,7 @@
      experience_years decimal(3,1),
      education text,
      skills text,
-     protfolio_link varchar(255),
+     portfolio_link varchar(255),
      foreign key (candidate_id) references users(user_id)
      );
 
@@ -66,10 +45,10 @@ create table jobs(
          job_id int auto_increment primary key,
          recruiter_id int not null,
          title varchar(100) not null,
-         decription text not null,
+         description text not null,
          location varchar(100),
          salary_range varchar(50),
-         job_type enum('Full-Time', 'Part_Time', 'Internship', 'Contract') default 'Full-Time',
+         job_type enum('Full_Time', 'Part_Time', 'Internship', 'Contract') default 'Full_Time',
          status enum('Open', 'Close') default 'Open',
          created_at timestamp default current_timestamp,
          deadline date,

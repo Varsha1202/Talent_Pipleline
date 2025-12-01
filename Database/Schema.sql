@@ -79,6 +79,18 @@ create table jobs(
  );
 
 
+//Application Pipeline History
+CREATE TABLE application_pipeline_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    application_id INT NOT NULL,
+    stage_id INT NOT NULL,
+    changed_by INT NULL,
+    moved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (application_id) REFERENCES applications(application_id),
+    FOREIGN KEY (stage_id) REFERENCES pipeline_stages(stage_id),
+    FOREIGN KEY (changed_by) REFERENCES users(user_id)
+);
+
     
 //Saved Jobs
 CREATE TABLE saved_jobs (

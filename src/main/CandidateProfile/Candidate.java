@@ -1,6 +1,5 @@
 package com.example.CandidateProfile;
 
-import java.time.Instant;
 
 import jakarta.persistence.*;
 
@@ -28,12 +27,6 @@ public class Candidate {
     @Column(name = "portfolio_link", length = 255)
     private String portfolioLink;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
-
-    @Column(name = "updated_at", nullable = false)
-    private Instant updatedAt;
-
     protected Candidate() {
         // JPA only
     }
@@ -52,16 +45,10 @@ public class Candidate {
         this.education = education;
         this.skills = skills;
         this.portfolioLink = portfolioLink;
-        this.createdAt = Instant.now();
-        this.updatedAt = Instant.now();
+        
     }
 
-    @PreUpdate
-    void onUpdate() {
-        this.updatedAt = Instant.now();
-    }
-
-    // Getters only (intentional)
+   
 
     public Long getCandidateId() {
         return candidateId;
@@ -87,13 +74,7 @@ public class Candidate {
         return portfolioLink;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
+   
 }
 
 

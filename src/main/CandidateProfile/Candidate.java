@@ -1,5 +1,6 @@
-package com.example.CandidateProfile;
+package com.example.demo.CandidateProfile;
 
+import java.time.Instant;
 
 import jakarta.persistence.*;
 
@@ -15,7 +16,7 @@ public class Candidate {
     @Column(name = "resume_url", length = 255)
     private String resumeUrl;
 
-    @Column(name = "experience_years", precision = 3, scale = 1)
+    @Column(name = "experience_years")
     private Double experienceYears;
 
     @Column(name = "education", columnDefinition = "TEXT")
@@ -26,6 +27,14 @@ public class Candidate {
 
     @Column(name = "portfolio_link", length = 255)
     private String portfolioLink;
+    
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    private Instant updatedAt;
+
+
 
     protected Candidate() {
         // JPA only
@@ -38,6 +47,7 @@ public class Candidate {
             String education,
             String skills,
             String portfolioLink
+            
     ) {
         this.candidateId = candidateId;
         this.resumeUrl = resumeUrl;
@@ -45,10 +55,12 @@ public class Candidate {
         this.education = education;
         this.skills = skills;
         this.portfolioLink = portfolioLink;
-        
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+       
     }
 
-   
+  
 
     public Long getCandidateId() {
         return candidateId;
@@ -73,9 +85,16 @@ public class Candidate {
     public String getPortfolioLink() {
         return portfolioLink;
     }
+    
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
 
    
 }
-
 
 

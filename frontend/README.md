@@ -24,6 +24,10 @@ Backend services are implemented separately; integration is in progress.
 
 ---
 
+## UI Preview
+
+![Landing Page](./landing.png)
+
 ## Development Setup
 
 ```bash
@@ -31,6 +35,4 @@ npm install
 npm run dev
 
 
-## UI Preview
 
-![Landing Page](./landing.png)

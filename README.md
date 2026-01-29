@@ -73,6 +73,13 @@ Frontend source code lives in `/frontend`.
 - Git & GitHub
 
 ---
+## Live Demo
+
+🔗 [[https://talent-pipeline-demo.vercel.app](https://talent-pipeline-demo.vercel.app/)]
+
+Note: This demo showcases the frontend UI only.
+Backend services are implemented separately; integration is in progress.
+
 
 ## Project Status
 
